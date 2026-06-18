@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio | Julissa Juárez</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0b0b0f;color:white;transition:.3s}
+
+.contact{
+padding:60px 8%;
+display:flex;
+justify-content:center;
+}
+
+.contact form{
+width:100%;
+max-width:700px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact input,
+.contact textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+background:#111;
+color:white;
+border:1px solid #333;
+}
+
+.contact textarea{
+resize:vertical;
+}
+
+body.light .contact input,
+body.light .contact textarea{
+background:white;
+color:#111;
+border:1px solid #ccc;
+}
+
+/* MODAL PROYECTOS */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+z-index:9999;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.modal-content{
+background:#111;
+max-width:700px;
+width:100%;
+padding:30px;
+border-radius:15px;
+border:1px solid #333;
+position:relative;
+max-height:85vh;
+overflow-y:auto;
+}
+
+.modal-content h2{
+margin-bottom:15px;
+color:#BD09EA;
+}
+
+.modal-content h3{
+margin-top:15px;
+margin-bottom:8px;
+color:#6C63FF;
+}
+
+.modal-content p,
+.modal-content li{
+line-height:1.7;
+color:#ddd;
+}
+
+.close-modal{
+position:absolute;
+top:15px;
+right:20px;
+font-size:28px;
+cursor:pointer;
+color:white;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:sticky;
+top:0;
+background:rgba(11,11,15,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo img{
+width:110px;
+height:auto;
+border-radius:10px;
+transform:scale(1.2);
+transform-origin:left center;
+}
+
+/* NAV */
+nav a{
+margin:0 15px;
+color:#bbb;
+text-decoration:none;
+font-size:14px;
+transition:.3s;
+}
+
+body.light nav a{
+color:#111;
+}
+nav a:hover{color:white}
+
+/* HERO */
+.hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:60px 8%;
+min-height:80vh;
+}
+
+.hero div:first-child{
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+}
+
+/* GRADIENT TEXT */
+.gradient-text{
+background:linear-gradient(90deg,#BD09EA,#6C63FF,#960264);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+font-size:50px;
+font-weight:700;
+}
+
+/* TYPEWRITER */
+.typing{
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid #6C63FF;
+width:0;
+animation:typing 3s steps(20,end) forwards, blink .8s infinite;
+}
+@keyframes typing{from{width:0}to{width:14ch}}
+@keyframes blink{0%,100%{border-color:transparent}50%{border-color:#6C63FF}}
+
+.tagline{
+color:#aaa;
+margin-top:10px;
+margin-bottom:20px;
+line-height:1.6;
+max-width:420px;
+}
+
+/* BOTONES */
+.btn{
+padding:10px 22px;
+border-radius:6px;
+border:none;
+background:#7c3aed;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(124,58,237,.5);
+}
+.btn-outline{
+background:transparent;
+border:1px solid #555;
+}
+.btn-outline:hover{
+background:#7c3aed;
+border-color:#7c3aed;
+}
+
+/* BOTONES EN LINEA */
+.hero-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+/* FOTO + GLOW */
+.hero-img{
+position:relative;
+display:flex;
+justify-content:center;
+}
+.hero-img::before{
+content:"";
+position:absolute;
+width:350px;
+height:350px;
+background:radial-gradient(circle,#BD09EA,#6C63FF,#960264);
+filter:blur(100px);
+opacity:.5;
+animation:glow 6s infinite alternate;
+}
+.hero img{
+width:300px;
+border-radius:200px;
+position:relative;
+z-index:1;
+}
+@keyframes glow{from{transform:scale(1)}to{transform:scale(1.2)}}
+
+/* ABOUT */
+.section-title{
+text-align:center;
+font-size:28px;
+margin:80px 0 40px;
+}
+.about{
+padding:80px 8%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+.about img{
+width:300px;
+border-radius:10px;
+padding:4px;
+background:linear-gradient(135deg,#BD09EA,#6C63FF,#960264);
+}
+.about p{
+color:#aaa;
+line-height:1.8;
+}
+
+/* INTERESES */
+
+.interests{
+padding:40px 8%;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.interest-card{
+position:relative;
+display:flex;
+align-items:center;
+gap:15px;
+background:#111;
+border:1px solid #222;
+padding:20px;
+border-radius:15px;
+min-width:260px;
+transition:.3s;
+cursor:pointer;
+}
+
+.interest-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(124,58,237,.35);
+border-color:#7c3aed;
+}
+
+.interest-card i{
+font-size:32px;
+color:#7c3aed;
+}
+
+.interest-card span{
+display:block;
+font-size:18px;
+font-weight:600;
+}
+
+.interest-card p{
+font-size:13px;
+color:#aaa;
+margin-top:3px;
+}
+
+.interest-level{
+position:absolute;
+top:-10px;
+right:-10px;
+background:#7c3aed;
+color:white;
+padding:6px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+opacity:0;
+transform:scale(.8);
+transition:.3s;
+}
+
+.interest-card:hover .interest-level{
+opacity:1;
+transform:scale(1);
+}
+
+/* MODO CLARO */
+
+body.light .interest-card{
+background:white;
+border:1px solid #ddd;
+}
+
+body.light .interest-card span{
+color:#111;
+}
+
+body.light .interest-card p{
+color:#555;
+}
+
+/* PROYECTOS */
+.projects{
+padding:60px 8%;
+display:flex;
+gap:20px;
+overflow-x:auto;
+}
+.project-card{
+min-width:250px;
+background:#111;
+border-radius:15px;
+overflow:hidden;
+border:1px solid #222;
+transition:.3s;
+}
+.project-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(124,58,237,.3);
+}
+.project-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+.project-content{padding:15px}
+.tech{
+display:inline-block;
+background:#222;
+padding:5px 10px;
+border-radius:10px;
+font-size:12px;
+margin-top:10px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+color:#777;
+}
+
+/* DARK MODE */
+body.light{
+background:#f5f5f7;
+color:#111;
+}
+body.light nav a{color:#555}
+body.light .about p{color:#444}
+body.light .project-card{background:white;border:1px solid #ddd}
+
+/* BOTON MODO */
+.dark-toggle{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#7c3aed;
+border:none;
+color:white;
+padding:10px 14px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* SCROLL */
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+.socials{
+margin-top:10px;
+}
+
+.socials a{
+color:#bbb;
+font-size:18px;
+margin:0 8px;
+transition:.3s;
+}
+
+.socials a:hover{
+color:#7c3aed;
+transform:translateY(-3px);
+}
+
+body.light .modal-content{
+background:white;
+color:#111;
+}
+
+body.light .modal-content p,
+body.light .modal-content li{
+color:#333;
+}
+
+/* CORRECCIÓN MODO CLARO */
+
+/* Menú */
+body.light nav a{
+color:#111;
+}
+
+body.light nav a:hover{
+color:#7c3aed;
+}
+
+/* Botón Descargar CV */
+body.light .btn-outline{
+color:#111;
+border:1px solid #999;
+}
+
+body.light .btn-outline:hover{
+color:white;
+}
+
+/* Botón EN/ES */
+body.light .btn{
+color:white;
+}
+
+/* Títulos principales */
+body.light h1{
+color:#111;
+}
+
+/* Texto "Hola, soy" */
+body.light .hero p{
+color:#111;
+}
+
+/* Footer */
+body.light footer{
+color:#555;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;text-align:center}
+.about{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="fotos/Logo_JJ.png">
+</div>
+
+<nav>
+<a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a>
+
+<a href="#sobre" data-es="Sobre mí" data-en="About me">
+Sobre mí
+</a>
+
+<a href="#intereses" data-es="Intereses" data-en="Interests">
+Intereses
+</a>
+
+<a href="#proyectos" data-es="Proyectos" data-en="Projects">
+Proyectos
+</a>
+
+<a href="#contacto" data-es="Contacto" data-en="Contact">
+Contacto
+</a>
+</nav>
+
+<button class="btn" onclick="toggleLanguage()">EN / ES</button>
+</header>
+
+<section class="hero reveal" id="inicio">
+<div>
+<p data-es="Hola, soy" data-en="Hi, I'm">Hola, soy</p>
+
+<h1>Julissa Juárez</h1>
+
+<h2 class="gradient-text typing"
+data-es="UX/UI Designer"
+data-en="UX/UI Designer">
+UX/UI Designer
+</h2>
+
+<p class="tagline"
+data-es="Diseñando experiencias digitales intuitivas y funcionales"
+data-en="Designing intuitive and functional digital experiences">
+Diseñando experiencias digitales intuitivas y funcionales
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+
+<a href="CV/curriculum vitae_1.pdf"
+id="cvDownload"
+class="btn btn-outline"
+download
+data-es="Descargar CV"
+data-en="Download CV">
+Descargar CV
+</a>
+</div>
+</div>
+
+<div class="hero-img">
+<img src="fotos/foto1.jpeg">
+</div>
+</section>
+
+<h2 class="section-title" id="sobre"
+data-es="SOBRE MÍ"
+data-en="ABOUT ME">
+SOBRE MÍ
+</h2>
+
+<section class="about reveal">
+<img src="fotos/foto2.jpeg">
+
+<div>
+<p 
+data-es="Soy Zulma Julissa Juárez Flores, con enfoque en UX/UI Design, apasionada por la creación de experiencias digitales intuitivas, funcionales y visualmente coherentes. Me interesa diseñar interfaces donde la estética y la usabilidad trabajen en conjunto para ofrecer soluciones claras y efectivas."
+data-en="I am Zulma Julissa Juárez Flores, focused on UX/UI Design, passionate about creating intuitive, functional, and visually coherent digital experiences. I am interested in designing interfaces where aesthetics and usability work together to provide clear and effective solutions.">
+Soy Zulma Julissa Juárez Flores, con enfoque en UX/UI Design, apasionada por la creación de experiencias digitales intuitivas, funcionales y visualmente coherentes. Me interesa diseñar interfaces donde la estética y la usabilidad trabajen en conjunto para ofrecer soluciones claras y efectivas.
+</p>
+
+<br>
+
+<a href="CV/curriculum vitae_1.pdf"
+id="cvDownload2"
+class="btn btn-outline"
+download
+data-es="Descargar CV"
+data-en="Download CV">
+Descargar CV
+</a>
+</div>
+</section>
+
+<h2 class="section-title"
+id="intereses"
+data-es="MIS INTERESES"
+data-en="MY INTERESTS">
+MIS INTERESES
+</h2>
+
+<section class="interests reveal">
+
+<div class="interest-card">
+<i class="fa-brands fa-figma"></i>
+<div>
+<span>Figma</span>
+<p
+data-es="Prototipado y diseño UX/UI"
+data-en="UX/UI prototyping and design">
+Prototipado y diseño UX/UI
+</p>
+</div>
+<div class="interest-level">95%</div>
+</div>
+
+<div class="interest-card">
+<i class="fa-solid fa-palette"></i>
+<div>
+<span>Canva</span>
+<p
+data-es="Diseño gráfico y contenido visual"
+data-en="Graphic design and visual content">
+Diseño gráfico y contenido visual
+</p>
+</div>
+<div class="interest-level">100%</div>
+</div>
+
+<div class="interest-card">
+<i class="fa-brands fa-html5"></i>
+<div>
+<span>HTML</span>
+<p
+data-es="Estructuración de sitios web"
+data-en="Website structure and markup">
+Estructuración de sitios web
+</p>
+</div>
+<div class="interest-level">90%</div>
+</div>
+
+<div class="interest-card">
+<i class="fa-brands fa-css3-alt"></i>
+<div>
+<span>CSS</span>
+<p
+data-es="Diseño y estilos responsivos"
+data-en="Responsive design and styling">
+Diseño y estilos responsivos
+</p>
+</div>
+<div class="interest-level">90%</div>
+</div>
+
+<div class="interest-card">
+<i class="fa-solid fa-cube"></i>
+<div>
+<span>Blender</span>
+<p
+data-es="Modelado y diseño 3D"
+data-en="3D modeling and design">
+Modelado y diseño 3D
+</p>
+</div>
+<div class="interest-level">90%</div>
+</div>
+
+</section>
+
+<h2 class="section-title" id="proyectos"
+data-es="MIS PROYECTOS"
+data-en="MY PROJECTS">
+MIS PROYECTOS
+</h2>
+
+<section class="projects reveal">
+
+<div class="project-card" onclick="openProject(1)">
+<img src="proyectos/proyecto1.jpeg">
+<div class="project-content">
+
+<h3 data-es="CLÍNICA EL MOLINO" data-en="EL MOLINO CLINIC">
+CLÍNICA EL MOLINO
+</h3>
+
+<p data-es="Sistema CLÍNICA EL MOLINO" data-en="El Molino Clinic System">
+Sistema CLÍNICA EL MOLINO
+</p>
+
+<span class="tech"
+data-es="Está basado en la programación con formularios y clases."
+data-en="Based on programming with forms and classes.">
+Esta basado en la programación con formularios y clases.
+</span>
+
+</div>
+</div>
+
+<div class="project-card" onclick="openProject(2)">
+<img src="proyectos/proyecto2.jpeg">
+<div class="project-content">
+
+<h3 data-es="SISTEMA DE GESTIÓN CLÍNICO" data-en="CLINICAL MANAGEMENT SYSTEM">
+SISTEMA DE GESTIÓN CLÍNICO
+</h3>
+
+<p data-es="Gestión clínico" data-en="Clinical management">
+Gestión clínico
+</p>
+
+<span class="tech"
+data-es="Registro de pacientes, citas, recetas, etc."
+data-en="Patient records, appointments, prescriptions, etc.">
+Registro de pacientes, citas, recetas, etc.
+</span>
+
+</div>
+</div>
+
+<div class="project-card" onclick="openProject(3)">
+<img src="proyectos/proyecto3.png">
+<div class="project-content">
+
+<h3 data-es="PLANILLA DE SALARIOS" data-en="PAYROLL SYSTEM">
+PLANILLA DE SALARIOS
+</h3>
+
+<p data-es="Calculadora Salarial" data-en="Salary calculator">
+Calculadora Salarial
+</p>
+
+<span class="tech"
+data-es="Aplicación web"
+data-en="Web application">
+Aplicación web
+</span>
+
+</div>
+</div>
+
+</section>
+
+<h2 class="section-title"
+data-es="CONTÁCTAME"
+data-en="CONTACT ME">
+CONTÁCTAME
+</h2>
+
+<section class="contact reveal">
+
+<form action="https://formsubmit.co/zjuarez2026@gmail.com" method="POST">
+
+<input
+type="text"
+name="name"
+required
+placeholder="Nombre"
+data-placeholder-es="Nombre"
+data-placeholder-en="Name">
+
+<input
+type="email"
+name="email"
+required
+placeholder="Email"
+data-placeholder-es="Correo electrónico"
+data-placeholder-en="Email">
+
+<textarea
+name="message"
+rows="6"
+required
+placeholder="Mensaje"
+data-placeholder-es="Mensaje"
+data-placeholder-en="Message"></textarea>
+
+<button
+type="submit"
+class="btn"
+data-es="Enviar"
+data-en="Send">
+Enviar
+</button>
+
+</form>
+
+</section>
+
+<footer id="contacto">
+<p
+data-es="© 2026 Julissa Juárez. Todos los derechos reservados"
+data-en="© 2026 Julissa Juárez. All rights reserved">
+© 2026 Julissa Juárez. Todos los derechos reservados
+</p>
+<div class="socials">
+<a href="https://www.linkedin.com/in/TU-USUARIO" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://github.com/ZulmaJuarez" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+</div>
+</footer>
+
+<button
+class="dark-toggle"
+onclick="toggleMode()"
+data-es="Modo"
+data-en="Mode">
+Modo
+</button>
+
+<div class="modal" id="projectModal">
+
+<div class="modal-content">
+
+<span class="close-modal" onclick="closeProject()">&times;</span>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+const windowHeight=window.innerHeight;
+reveals.forEach(el=>{
+const elementTop=el.getBoundingClientRect().top;
+if(elementTop < windowHeight-80){
+el.classList.add('active');
+}
+});
+}
+window.addEventListener('scroll',revealOnScroll);
+revealOnScroll();
+
+function toggleMode(){
+document.body.classList.toggle('light');
+}
+
+let currentLang="es";
+
+function toggleLanguage(){
+
+currentLang = currentLang==="es" ? "en" : "es";
+
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.textContent = el.getAttribute("data-" + currentLang);
+});
+
+document.querySelectorAll("[data-placeholder-es]").forEach(el=>{
+el.placeholder = el.getAttribute("data-placeholder-" + currentLang);
+});
+
+const cv1=document.getElementById("cvDownload");
+const cv2=document.getElementById("cvDownload2");
+
+if(currentLang==="en"){
+cv1.href="CV/curriculum vitae_EN.pdf";
+cv2.href="CV/curriculum vitae_EN.pdf";
+}else{
+cv1.href="CV/curriculum vitae_1.pdf";
+cv2.href="CV/curriculum vitae_1.pdf";
+}
+
+const typingEl=document.querySelector(".typing");
+typingEl.style.animation="none";
+typingEl.offsetHeight;
+typingEl.style.animation=null;
+}
+
+function openProject(id){
+
+const modalBody=document.getElementById("modalBody");
+
+const projects={
+
+es:{
+
+1:`
+<h2>CLÍNICA EL MOLINO</h2>
+
+<h3>Rol</h3>
+<p>Diseñadora UX/UI y Desarrolladora Frontend.</p>
+
+<h3>Competencias técnicas destacadas</h3>
+<ul>
+<li>Diseño de interfaces centradas en el usuario.</li>
+<li>Organización de flujos de navegación.</li>
+<li>Desarrollo con programación orientada a objetos.</li>
+<li>Gestión de formularios y validación de datos.</li>
+</ul>
+
+<h3>Tecnologías utilizadas</h3>
+<p>HTML, CSS, JavaScript, Formularios y Clases.</p>
+
+<h3>Resultados obtenidos</h3>
+<p>
+Se desarrolló un sistema para gestionar registros de pacientes, citas y recetas médicas, mejorando la organización de la información y facilitando el acceso a los diferentes módulos mediante una interfaz intuitiva y de fácil navegación.
+</p>
+`,
+
+2:`
+<h2>SISTEMA DE GESTIÓN CLÍNICO</h2>
+
+<h3>Rol</h3>
+<p>Diseñadora UX/UI y Analista de Sistemas.</p>
+
+<h3>Competencias técnicas destacadas</h3>
+<ul>
+<li>Diseño de experiencia de usuario.</li>
+<li>Modelado de procesos clínicos.</li>
+<li>Organización y administración de información.</li>
+<li>Diseño de interfaces funcionales.</li>
+</ul>
+
+<h3>Tecnologías utilizadas</h3>
+<p>HTML, CSS, JavaScript y herramientas de diseño UX/UI.</p>
+
+<h3>Resultados obtenidos</h3>
+<p>
+Se diseñó una solución enfocada en la gestión clínica que permite organizar pacientes, consultas, historiales y procesos administrativos, optimizando el flujo de trabajo y mejorando la experiencia de los usuarios dentro del sistema.
+</p>
+`,
+
+3:`
+<h2>PLANILLA DE SALARIOS</h2>
+
+<h3>Rol</h3>
+<p>Desarrolladora Web.</p>
+
+<h3>Competencias técnicas destacadas</h3>
+<ul>
+<li>Lógica de programación.</li>
+<li>Automatización de cálculos.</li>
+<li>Validación de datos.</li>
+<li>Desarrollo de aplicaciones web.</li>
+</ul>
+
+<h3>Tecnologías utilizadas</h3>
+<p>HTML, CSS y JavaScript.</p>
+
+<h3>Resultados obtenidos</h3>
+<p>
+Se desarrolló una calculadora de ISR integrada a un sistema de planilla salarial, automatizando el cálculo de deducciones legales como ISSS, AFP e ISR. Esto permitió reducir errores manuales, agilizar los procesos de cálculo y garantizar resultados precisos conforme a la normativa vigente.
+</p>
+`
+},
+
+en:{
+
+1:`
+<h2>EL MOLINO CLINIC</h2>
+
+<h3>Role</h3>
+<p>UX/UI Designer and Frontend Developer.</p>
+
+<h3>Key Technical Skills</h3>
+<ul>
+<li>User-centered interface design.</li>
+<li>Navigation flow organization.</li>
+<li>Object-oriented programming.</li>
+<li>Form management and data validation.</li>
+</ul>
+
+<h3>Technologies Used</h3>
+<p>HTML, CSS, JavaScript, Forms and Classes.</p>
+
+<h3>Results Achieved</h3>
+<p>
+A system was developed to manage patient records, appointments, and prescriptions, improving information organization and facilitating access to different modules through an intuitive and user-friendly interface.
+</p>
+`,
+
+2:`
+<h2>CLINICAL MANAGEMENT SYSTEM</h2>
+
+<h3>Role</h3>
+<p>UX/UI Designer and Systems Analyst.</p>
+
+<h3>Key Technical Skills</h3>
+<ul>
+<li>User experience design.</li>
+<li>Clinical process modeling.</li>
+<li>Information organization and management.</li>
+<li>Functional interface design.</li>
+</ul>
+
+<h3>Technologies Used</h3>
+<p>HTML, CSS, JavaScript, and UX/UI design tools.</p>
+
+<h3>Results Achieved</h3>
+<p>
+A clinical management solution was designed to organize patients, consultations, medical records, and administrative processes, optimizing workflow and improving the user experience.
+</p>
+`,
+
+3:`
+<h2>PAYROLL SYSTEM</h2>
+
+<h3>Role</h3>
+<p>Web Developer.</p>
+
+<h3>Key Technical Skills</h3>
+<ul>
+<li>Programming logic.</li>
+<li>Process automation.</li>
+<li>Data validation.</li>
+<li>Web application development.</li>
+</ul>
+
+<h3>Technologies Used</h3>
+<p>HTML, CSS, and JavaScript.</p>
+
+<h3>Results Achieved</h3>
+<p>
+An income tax calculator was developed as part of a payroll system, automating legal deductions such as ISSS, AFP, and ISR. This reduced manual errors, accelerated calculations, and ensured accurate results.
+</p>
+`
+}
+
+};
+
+modalBody.innerHTML=projects[currentLang][id];
+
+document.getElementById("projectModal").style.display="flex";
+}
+
+function closeProject(){
+document.getElementById("projectModal").style.display="none";
+}
+
+window.onclick=function(e){
+const modal=document.getElementById("projectModal");
+
+if(e.target===modal){
+closeProject();
+}
+}
+
+</script>
+
+</body>
+</html>
