@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio | Julissa Juárez</title>
+<title>Zulma Julissa Juárez Flores | Portafolio UX/UI Designer</title>
+<meta name="description" content="Portafolio profesional de Zulma Julissa Juárez Flores, UX/UI Designer. Proyectos de diseño UX/UI, desarrollo web, experiencia de usuario y diseño digital.">
+<meta name="keywords" content="UX/UI Designer, Portafolio, Diseño UX, Diseño UI, HTML, CSS, JavaScript, Figma, Canva, Blender, Desarrollo Web">
+<meta name="author" content="Zulma Julissa Juárez Flores">
+
+<meta property="og:title" content="Portafolio Profesional - Zulma Julissa Juárez Flores">
+<meta property="og:description" content="UX/UI Designer especializada en experiencias digitales intuitivas y funcionales.">
+<meta property="og:type" content="website">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -475,9 +482,115 @@ color:#555;
 
 /* RESPONSIVE */
 @media(max-width:900px){
-.hero{grid-template-columns:1fr;text-align:center}
-.about{grid-template-columns:1fr}
+
+header{
+flex-direction:column;
+gap:15px;
 }
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero div:first-child{
+align-items:center;
+}
+
+.hero img{
+width:250px;
+margin-top:30px;
+}
+
+.about{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.about img{
+margin:auto;
+}
+
+.projects{
+padding:30px 5%;
+}
+
+.project-card{
+min-width:280px;
+}
+
+.interests{
+flex-direction:column;
+align-items:center;
+}
+
+.interest-card{
+width:100%;
+max-width:400px;
+}
+
+.modal-content{
+width:95%;
+padding:20px;
+}
+
+.contact form{
+width:100%;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+}
+@media(max-width:600px){
+
+.gradient-text{
+font-size:35px;
+}
+
+.section-title{
+font-size:24px;
+}
+
+.hero{
+padding:40px 5%;
+}
+
+.about{
+padding:40px 5%;
+}
+
+.contact{
+padding:40px 5%;
+}
+
+.hero img{
+width:200px;
+}
+
+.logo img{
+width:90px;
+}
+
+.btn{
+width:100%;
+max-width:250px;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
 </style>
 </head>
 
@@ -485,7 +598,7 @@ color:#555;
 
 <header>
 <div class="logo">
-<img src="fotos/Logo_JJ.png">
+<img src="fotos/Logo_JJ.png" alt="Logo de Zulma Julissa Juárez Flores">
 </div>
 
 <nav>
@@ -530,7 +643,13 @@ Diseñando experiencias digitales intuitivas y funcionales
 </p>
 
 <div class="hero-buttons">
-<a href="#" class="btn" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+<a href="https://www.linkedin.com/in/zulma-ju%C3%A1rez-3138063a1/"
+target="_blank"
+class="btn"
+data-es="LinkedIn"
+data-en="LinkedIn">
+LinkedIn
+</a>
 
 <a href="CV/curriculum vitae_1.pdf"
 id="cvDownload"
@@ -544,7 +663,7 @@ Descargar CV
 </div>
 
 <div class="hero-img">
-<img src="fotos/foto1.jpeg">
+<img src="fotos/foto1.jpeg" alt="Fotografía profesional de Zulma Julissa Juárez Flores">
 </div>
 </section>
 
@@ -555,8 +674,7 @@ SOBRE MÍ
 </h2>
 
 <section class="about reveal">
-<img src="fotos/foto2.jpeg">
-
+<img src="fotos/foto2.jpeg" alt="Fotografía de Zulma Julissa Juárez Flores">
 <div>
 <p 
 data-es="Soy Zulma Julissa Juárez Flores, con enfoque en UX/UI Design, apasionada por la creación de experiencias digitales intuitivas, funcionales y visualmente coherentes. Me interesa diseñar interfaces donde la estética y la usabilidad trabajen en conjunto para ofrecer soluciones claras y efectivas."
@@ -779,7 +897,7 @@ data-en="© 2026 Julissa Juárez. All rights reserved">
 © 2026 Julissa Juárez. Todos los derechos reservados
 </p>
 <div class="socials">
-<a href="https://www.linkedin.com/in/TU-USUARIO" target="_blank">
+<a href="https://www.linkedin.com/in/zulma-ju%C3%A1rez-3138063a1/" target="_blank">
 <i class="fab fa-linkedin"></i>
 </a>
 
